@@ -31,12 +31,11 @@ jobs:
           git config --local user.email "exceednethunter@gmail.com"
           git add README.md
           git commit -m "Update README with recent activity" || echo "No changes to commit"
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
 
       - name: GitHub Push
         uses: ad-m/github-push-action@master
         with:
           force: true
           directory: '.'
-          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          GITHUB_PUSH_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
