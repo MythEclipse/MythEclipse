@@ -38,4 +38,4 @@ jobs:
         run: |
           git push origin main
         env:
-          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          GITHUB_PUSH_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
