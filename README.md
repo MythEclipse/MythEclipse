@@ -11,7 +11,7 @@ Hi there! I'm Asep Haryana, a passionate developer with a love for technology an
 - 🔭 I’m currently working on various web development projects.
 - 🌱 I’m currently learning advanced JavaScript, TypeScript, and machine learning.
 - 💬 Ask me about web development, JavaScript, or any tech-related topics.
-- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/asepharyana71/) | [Twitter](https://twitter.com/asepharyana71) | [Email](mailto:asepharyana71@gmail.com)
+- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/asep-haryana-2014a5294/) | [Twitter](https://twitter.com/asepharyana71) | [Email](mailto:asepharyana71@gmail.com)
 
 ## 💻 Technologies & Tools
 
