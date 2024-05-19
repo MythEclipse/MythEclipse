@@ -3,7 +3,8 @@ name: Fetch Recent Activity
 on:
   schedule:
     - cron: '0 * * * *'  # Runs every hour
-
+  workflow_dispatch:
+  
 jobs:
   fetch-activity:
     runs-on: ubuntu-latest
