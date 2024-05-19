@@ -19,3 +19,16 @@ jobs:
           user: Asepharyana71
           base: header, activity
           template: classic
+
+      - name: Generate README
+        run: |
+          echo "## Recent Activity" > README.md
+          echo "" >> README.md
+          curl -sSLf https://raw.githubusercontent.com/${{ github.repository }}/metrics/${{ github.actor }}/activity.md >> README.md
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add README.md
+          git commit -m "Update README with recent activity" || echo "No changes to commit"
