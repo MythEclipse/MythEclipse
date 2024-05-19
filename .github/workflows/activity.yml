@@ -31,3 +31,5 @@ jobs:
           git config --local user.name "GitHub Action"
           git add README.md
           git commit -m "Update README with recent activity" || echo "No changes to commit"
+        env:
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
