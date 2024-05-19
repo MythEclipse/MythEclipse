@@ -1,92 +1,63 @@
-## Recent Activity
+<div align="center">
+    <a href="https://git.io/typing-svg">
+        <img src="https://readme-typing-svg.herokuapp.com?font=Roboto&pause=1000&color=49F707&center=true&vCenter=true&width=435&lines=Selamat+datang+di+github+Asepharyana71" alt="Typing SVG" />
+    </a>
+</div>
 
-"2024-05-19T08:36:15Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:31:14Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:29:28Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:26:47Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:23:10Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:20:24Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:17:31Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T08:05:12Z"
-"PushEvent"
-"Asepharyana71/asepharyana.my.id"
-"2024-05-19T08:04:47Z"
-"PushEvent"
-"Asepharyana71/asepharyana.my.id"
-"2024-05-19T08:03:33Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:58:59Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:39:08Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:37:29Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:26:58Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:25:59Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:22:26Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:20:33Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:18:03Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:12:05Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:09:46Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:06:35Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T07:04:28Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T06:45:57Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T06:31:31Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T06:30:40Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T06:29:38Z"
-"PushEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T06:16:07Z"
-"CreateEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T06:16:07Z"
-"CreateEvent"
-"Asepharyana71/Asepharyana71"
-"2024-05-19T05:32:04Z"
-"PushEvent"
-"Asepharyana71/web5"
-"2024-05-19T05:31:33Z"
-"PushEvent"
-"Asepharyana71/web5"
+## 👋 About Me
+
+Hi there! I'm Asep Haryana, a passionate developer with a love for technology and learning new things. Welcome to my GitHub profile!
+
+- 🔭 I’m currently working on various web development projects.
+- 🌱 I’m currently learning advanced JavaScript, TypeScript, and machine learning.
+- 💬 Ask me about web development, JavaScript, or any tech-related topics.
+- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/asep-haryana-2014a5294/) | [Twitter](https://twitter.com/asepharyana71) | [Email](mailto:asepharyana71@gmail.com)
+
+## 💻 Technologies & Tools
+
+<div align="left">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="Linux" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="Bash" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="TypeScript" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="Java" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="Python" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="Node.js" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="React" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="40" alt="Tailwind CSS" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="Next.js" />
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="40" alt="TensorFlow" />
+</div>
+
+## 🐍 Snake Animation
+
+<div align="center">
+    <img src="https://raw.githubusercontent.com/Asepharyana71/Asepharyana71/output/snake.svg" alt="Snake animation" />
+</div>
+
+## 📊 GitHub Stats
+
+<div align="center">
+    <img src="https://github-readme-stats.vercel.app/api?username=Asepharyana71&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="Stats graph" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Asepharyana71&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="Languages graph" />
+</div>
+
+## 🛠️ Projects
+
+<!--START_SECTION:projects-->
+<!--END_SECTION:projects-->
+
+## ✍️ Blog Posts
+
+<!-- Replace this section with your actual blog posts section -->
+
+## 🚀 Recent Activity
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
+
+## 🌟 Profile Views
+
+<div align="center">
+    <img src="https://profile-counter.glitch.me/Asepharyana71/count.svg?" alt="Profile views counter" />
+</div>
