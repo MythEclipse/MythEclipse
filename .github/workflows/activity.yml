@@ -37,5 +37,4 @@ jobs:
         with:
           force: true
           directory: '.'
-          GITHUB_PUSH_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
