@@ -9,8 +9,10 @@ jobs:
   fetch-activity:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+          fetch-depth: 0
 
       - name: Fetch Recent Activity
         run: |
@@ -25,11 +27,11 @@ jobs:
           echo "" >> README.md
           cat activity.json >> README.md
 
-      - name: Commit changes
+      - name: Commit Changes
         run: |
           git config --local user.name "Asep haryana"
           git config --local user.email "exceednethunter@gmail.com"
-          git add README.md
+          git add -A
           git commit -m "Update README with recent activity" || echo "No changes to commit"
 
       - name: GitHub Push
