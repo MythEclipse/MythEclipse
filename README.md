@@ -4,37 +4,49 @@
     </a>
 </div>
 
+## 👋 About Me
+
+Hi there! I'm Asep Haryana, a passionate developer with a love for technology and learning new things. Welcome to my GitHub profile!
+
+- 🔭 I’m currently working on various web development projects.
+- 🌱 I’m currently learning advanced JavaScript, TypeScript, and machine learning.
+- 💬 Ask me about web development, JavaScript, or any tech-related topics.
+- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/asepharyana71/) | [Twitter](https://twitter.com/asepharyana71) | [Email](mailto:asepharyana71@gmail.com)
+
 ## 💻 Technologies & Tools
 
-<div align="left">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="Linux" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="Bash" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="TypeScript" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="Java" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="Python" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="Node.js" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="React" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="40" alt="Tailwind CSS" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="Next.js" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="40" alt="TensorFlow" />
-</div>
+<!-- Replace this section with your actual technologies and tools section -->
 
-## 🐍 Snake Animation
+## 🛠️ Projects
 
-<div align="center">
-    <img src="https://raw.githubusercontent.com/Asepharyana71/Asepharyana71/output/snake.svg" alt="Snake animation" />
-</div>
+<!--START_SECTION:projects-->
+<!--END_SECTION:projects-->
 
-## 📊 GitHub Stats
+## ✍️ Blog Posts
 
-<div align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=Asepharyana71&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="Stats graph" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Asepharyana71&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="Languages graph" />
-</div>
+<!-- Replace this section with your actual blog posts section -->
+
+## 🚀 Recent Activity
+
+<!--START_SECTION:activity-->
+<!--END_SECTION:activity-->
 
 ## 🌟 Profile Views
 
 <div align="center">
     <img src="https://profile-counter.glitch.me/Asepharyana71/count.svg?" alt="Profile views counter" />
+</div>
+
+## 📫 Connect with Me
+
+<div align="center">
+    <a href="https://www.linkedin.com/in/asepharyana71/" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" height="40" alt="LinkedIn" />
+    </a>
+    <a href="https://twitter.com/asepharyana71" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/twitter/twitter-original.svg" height="40" alt="Twitter" />
+    </a>
+    <a href="mailto:asepharyana71@gmail.com" target="_blank">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg" height="40" alt="Email" />
+    </a>
 </div>
