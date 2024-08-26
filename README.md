@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://git.io/typing-svg">
-        <img src="https://readme-typing-svg.herokuapp.com?font=Roboto&pause=1000&color=49F707&center=true&vCenter=true&width=435&lines=Selamat+datang+di+github+Asepharyana71" alt="Typing SVG" />
+        <img src="https://readme-typing-svg.herokuapp.com?font=Roboto&pause=1000&color=49F707&center=true&vCenter=true&width=435&lines=Selamat+datang+di+github+MythEclipse" alt="Typing SVG" />
     </a>
 </div>
 
@@ -38,7 +38,7 @@ Hi there! I'm Asep Haryana, a passionate developer with a love for technology an
 ## 📊 GitHub Stats
 
 <div align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=Asepharyana71&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="Stats graph" />
+    <img src="https://github-readme-stats.vercel.app/api?username=MythEclipse&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="Stats graph" />
     <img src="https://github-readme-stats.vercel.app/api/top-langs?username=MythEclipse&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="Languages graph" />
 </div>
 
