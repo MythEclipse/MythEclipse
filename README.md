@@ -32,14 +32,14 @@ Hi there! I'm Asep Haryana, a passionate developer with a love for technology an
 ## 🐍 Snake Animation
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/Asepharyana71/Asepharyana71/output/snake.svg" alt="Snake animation" />
+    <img src="https://raw.githubusercontent.com/MythEclipse/MythEclipse/output/snake.svg" alt="Snake animation" />
 </div>
 
 ## 📊 GitHub Stats
 
 <div align="center">
     <img src="https://github-readme-stats.vercel.app/api?username=Asepharyana71&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="Stats graph" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=Asepharyana71&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="Languages graph" />
+    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=MythEclipse&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="Languages graph" />
 </div>
 
 ## 🛠️ Projects
