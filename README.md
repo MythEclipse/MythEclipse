@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://git.io/typing-svg">
-        <img src="https://readme-typing-svg.herokuapp.com?font=Roboto&pause=1000&color=49F707&center=true&vCenter=true&width=435&lines=Selamat+datang+di+github+MythEclipse" alt="Typing SVG" />
+        <img src="https://raw.githubusercontent.com/MythEclipse/MythEclipse/refs/heads/main/atomic.gif" alt="atomic" />
     </a>
 </div>
 
