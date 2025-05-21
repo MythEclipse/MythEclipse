@@ -1,6 +1,6 @@
 <div align="center">
     <a href="https://git.io/typing-svg">
-        <img src="https://raw.githubusercontent.com/MythEclipse/MythEclipse/refs/heads/main/atomic.gif" alt="atomic" />
+        <img src="https://raw.githubusercontent.com/MythEclipse/MythEclipse/refs/heads/main/kuroyukihime-accel-world.gif" alt="atomic" />
     </a>
 </div>
 
