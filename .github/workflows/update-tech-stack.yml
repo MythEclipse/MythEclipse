@@ -1,0 +1,36 @@
+name: Update Tech Stack
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Fetch languages
+        run: |
+          mkdir -p data
+          LANGUAGES=$(curl -s "https://api.github.com/users/MythEclipse/repos?per_page=100&sort=updated" | \
+            jq -r '[.[] | select(.language != null) | .language] | unique | map(tolower)')
+          
+          cat > data/tech-stack.json << EOF
+          {
+            "updated": "$(date -Iseconds)",
+            "username": "MythEclipse",
+            "languages": $LANGUAGES
+          }
+          EOF
+      
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/tech-stack.json
+          git diff --exit-code || git commit -m "chore: update tech-stack data"
+          git push

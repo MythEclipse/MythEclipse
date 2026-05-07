@@ -1,0 +1,28 @@
+---
+name: Sync README
+
+on:
+  push:
+    paths:
+      - 'data/tech-stack.json'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate README
+        run: |
+          LANGUAGES=$(cat data/tech-stack.json | jq -r '.languages | join(",")')
+          
+          sed -i "s/|languages|/$(echo $LANGUAGES | sed 's/,/,/g')/g" README.md
+          
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --exit-code || git commit -m "chore: sync README with tech-stack"
+          git push

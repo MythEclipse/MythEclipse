@@ -1,62 +1,93 @@
+# 👨‍💻 Asep Haryana
+
 <div align="center">
-    <a href="https://git.io/typing-svg">
-        <img src="https://raw.githubusercontent.com/MythEclipse/MythEclipse/refs/heads/main/kuroyukihime-accel-world.gif" alt="atomic" />
-    </a>
+
+![Anime Banner](https://raw.githubusercontent.com/MythEclipse/MythEclipse/refs/heads/main/kuroyukihime-accel-world.gif)
+
+**Passionate Developer | Tech Enthusiast | Life-long Learner**
+
 </div>
 
-## 👋 About Me
-
-Hi there! I'm Asep Haryana, a passionate developer with a love for technology and learning new things. Welcome to my GitHub profile!
-
-- 🌱 I’m currently learning advanced JavaScript, TypeScript, and machine learning.
-- 💬 Ask me about web development, JavaScript, or any tech-related topics.
-- 📫 How to reach me: [LinkedIn](https://www.linkedin.com/in/asep-haryana-2014a5294/) | [Twitter](https://twitter.com/asepharyana71) | [Email](mailto:asepharyana71@gmail.com)
-
-## 💻 Technologies & Tools
-
-<div align="left">
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" height="40" alt="Linux" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" height="40" alt="Bash" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="40" alt="JavaScript" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" height="40" alt="TypeScript" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" height="40" alt="Java" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" height="40" alt="Python" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" height="40" alt="Node.js" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" height="40" alt="React" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" height="40" alt="Tailwind CSS" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" height="40" alt="Next.js" />
-    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" height="40" alt="TensorFlow" />
+<div align="center">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=32&pause=1000&color=06b6d4&center=true&vCenter=true&width=600&height=60&lines=Hello!+I'm+Asep;Full+Stack+Developer;Open+Source+Enthusiast;Build.+Learn.+Share." alt="Typing SVG" />
 </div>
 
-## 🐍 Snake Animation
+---
+
+## 🎯 About
+
+- Build web apps, APIs, and tools with a focus on clean developer experience.
+- Enjoy open-source, automation, and learning new technologies.
+- Open to collaboration on interesting projects.
+
+---
+
+## 📚 Tech Stack
+
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=typescript,rust,python,nix,shell,linux,git,github,vscode,docker,nextjs,react,tailwind&perline=6&theme=dark" alt="Tech Stack" />
+</div>
+
+> ⚡ Auto-synced daily from GitHub repos (see `data/tech-stack.json`)
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=MythEclipse&theme=tokyonight" alt="GitHub Stats" />
+    <img src="https://github-readme-streak-stats.herokuapp.com?user=MythEclipse&theme=tokyonight&hide_border=true&border_radius=8" alt="Commit Streak" />
+</div>
+
+<div align="center">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=MythEclipse&theme=tokyonight" alt="Top Languages" />
+</div>
+
+## 🎯 Tech Focus
+
+<div align="center">
+    <img src="https://skillicons.dev/icons?i=linux,git,github,vscode,docker,react,nextjs,nodejs,tailwind&perline=6" alt="Tech Focus" />
+</div>
+
+---
+
+## 🐍 Snake Pattern
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/MythEclipse/MythEclipse/output/snake.svg" alt="Snake animation" />
 </div>
 
-## 📊 GitHub Stats
+---
+
+## 📈 Profile Activity
 
 <div align="center">
-    <img src="https://github-readme-stats.vercel.app/api?username=MythEclipse&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false&order=1" height="150" alt="Stats graph" />
-    <img src="https://github-readme-stats.vercel.app/api/top-langs?username=MythEclipse&locale=en&hide_title=false&layout=compact&card_width=320&langs_count=5&theme=dracula&hide_border=false&order=2" height="150" alt="Languages graph" />
+    <img src="https://ghchart.rshah.org/0b1221/MythEclipse" alt="GitHub Contribution Graph" />
 </div>
 
-## 🛠️ Projects
+---
 
-<!--START_SECTION:projects-->
-<!--END_SECTION:projects-->
+## 🤝 Connect
 
-## ✍️ Blog Posts
+<p align="center">
+    <a href="https://linkedin.com/in/asep-haryana-2014a5294/">
+        <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+    </a>
+    <a href="https://twitter.com/asepharyana71">
+        <img src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter" />
+    </a>
+    <a href="mailto:asepharyana71@gmail.com">
+        <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+    </a>
+    <a href="https://github.com/MythEclipse">
+        <img src="https://img.shields.io/badge/GitHub-A3B8AA?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+    </a>
+</p>
 
-<!-- Replace this section with your actual blog posts section -->
+---
 
-## 🚀 Recent Activity
-
-<!--START_SECTION:activity-->
-<!--END_SECTION:activity-->
-
-## 🌟 Profile Views
+## 📄 Just For Fun
 
 <div align="center">
-    <img src="https://profile-counter.glitch.me/Asepharyana71/count.svg?" alt="Profile views counter" />
+    <img src="https://capsule-render.vercel.app/api?section=footer&type=waving&text=Thank%20you%20for%20visiting!&fontColor=06b6d4&height=70" alt="Footer" />
 </div>
