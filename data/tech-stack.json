@@ -1,1 +1,19 @@
-{"updated":"2026-05-07T00:00:00Z","username":"MythEclipse","languages":["typescript","rust","python","nix","shell","go"],"stats_url":"https://github-readme-stats.vercel.app/api/top-langs/?username=MythEclipse&layout=compact&theme=tokyonight&hide_border=false&bg_color=1a1b26&title_color=06b6d4"}
+{
+  "updated": "2026-11-06T02:46:05+00:00",
+  "username": "MythEclipse",
+  "languages": [
+  "blade",
+  "c",
+  "c#",
+  "html",
+  "java",
+  "javascript",
+  "jupyter notebook",
+  "kotlin",
+  "php",
+  "python",
+  "rust",
+  "shell",
+  "typescript"
+]
+}
