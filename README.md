@@ -32,7 +32,7 @@
 
 <!-- data-tech-stack:start — rewritten by .github/workflows/sync-readme.yml.
      Do not edit between these markers; the sync overwrites them. -->
-**Languages in active use:** `blade`, `c`, `c#`, `html`, `java`, `javascript`, `jupyter notebook`, `kotlin`, `php`, `python`, `rust`, `shell`, `typescript`
+**Languages in active use:** _not yet synced_
 <!-- data-tech-stack:end -->
 
 ---
