@@ -16,8 +16,11 @@ jobs:
       - name: Fetch languages
         run: |
           mkdir -p data
-          LANGUAGES=$(curl -s "https://api.github.com/users/MythEclipse/repos?per_page=100&sort=updated" | \
-            jq -r '[.[] | select(.language != null) | .language] | unique | map(tolower)')
+          # `ascii_downcase`, NOT `tolower`. `tolower` does not exist in jq at all
+          # — it is not a 1.6-vs-1.7 difference — so this step died with
+          # `jq: error: tolower/0 is not defined` on every scheduled run.
+          LANGUAGES=$(curl -sf "https://api.github.com/users/MythEclipse/repos?per_page=100&sort=updated" | \
+            jq -r '[.[] | select(.language != null) | .language] | unique | map(ascii_downcase)')
           
           cat > data/tech-stack.json << EOF
           {
@@ -32,5 +35,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/tech-stack.json
-          git diff --exit-code || git commit -m "chore: update tech-stack data"
-          git push
+          # `--cached`, not a bare `git diff`. `git diff` compares the WORKING TREE
+          # against the index, so after `git add` it always reports no difference
+          # and `|| git commit` never ran — the data file was regenerated and then
+          # silently discarded on every run. `--cached` compares the index against
+          # HEAD, which is the question actually being asked.
+          if git diff --cached --quiet; then
+            echo "tech-stack data unchanged; nothing to commit"
+          else
+            git commit -m "chore: update tech-stack data"
+            git push
+          fi
