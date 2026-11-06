@@ -30,6 +30,11 @@
 
 > ⚡ Auto-synced daily from GitHub repos (see `data/tech-stack.json`)
 
+<!-- data-tech-stack:start — rewritten by .github/workflows/sync-readme.yml.
+     Do not edit between these markers; the sync overwrites them. -->
+**Languages in active use:** `blade`, `c`, `c#`, `html`, `java`, `javascript`, `jupyter notebook`, `kotlin`, `php`, `python`, `rust`, `shell`, `typescript`
+<!-- data-tech-stack:end -->
+
 ---
 
 ## 📊 GitHub Stats
