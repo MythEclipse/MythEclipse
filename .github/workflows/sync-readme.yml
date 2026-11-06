@@ -7,6 +7,13 @@ on:
       - 'data/tech-stack.json'
   workflow_dispatch:
 
+# This job commits README.md back to its own repo, so it needs a writable
+# `contents` scope. Without it the push fails with
+# `403 Permission to ... denied to github-actions[bot]` — this repo's default
+# token scope is read-only.
+permissions:
+  contents: write
+
 jobs:
   sync:
     runs-on: ubuntu-latest
@@ -15,14 +22,58 @@ jobs:
 
       - name: Generate README
         run: |
-          LANGUAGES=$(cat data/tech-stack.json | jq -r '.languages | join(",")')
-          
-          sed -i "s/|languages|/$(echo $LANGUAGES | sed 's/,/,/g')/g" README.md
+          # The old body ran `sed -i "s/|languages|/.../g"`, but README.md has no
+          # `|languages|` placeholder anywhere — it renders the stack as a
+          # skillicons.dev URL with a hand-written list. So the sed matched
+          # nothing, nothing was committed, and the job could never have worked
+          # even with a writable token.
+          #
+          # Rewriting the skillicons URL is not the fix either: GitHub's language
+          # names are not skillicons slugs. `blade`, `c`, `html`, `kotlin`,
+          # `shell` and `jupyter notebook` have no icon (skillicons answers 256
+          # bytes, its "unknown icon" body, for each), and `jupyter notebook`
+          # contains a space that breaks the URL outright. Writing the raw list
+          # there would produce a broken image.
+          #
+          # So the sync owns a marked text block instead of an image URL.
+          python3 - <<'PY'
+          import json, pathlib, re
+
+          data = json.loads(pathlib.Path("data/tech-stack.json").read_text())
+          langs = data.get("languages") or []
+          if not langs:
+              raise SystemExit("data/tech-stack.json has no languages; refusing to blank the README")
+
+          rendered = ", ".join(f"`{l}`" for l in langs)
+          readme = pathlib.Path("README.md")
+          text = readme.read_text()
+
+          block = re.compile(
+              r"(<!-- data-tech-stack:start.*?-->)"
+              r".*?"
+              r"(<!-- data-tech-stack:end -->)",
+              re.S,
+          )
+          if not block.search(text):
+              raise SystemExit("data-tech-stack markers not found in README.md")
+
+          new = block.sub(lambda m: f"{m.group(1)}\n**Languages in active use:** {rendered}\n{m.group(2)}", text)
+          readme.write_text(new)
+          print(f"rendered {len(langs)} languages")
+          PY
           
       - name: Commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git diff --exit-code || git commit -m "chore: sync README with tech-stack"
-          git push
+          # `--cached`, not a bare `git diff`. `git diff` compares the working
+          # tree to the INDEX, so right after `git add` it always reports "no
+          # difference" and exits 0 — the `||` branch never fired, so the README
+          # was regenerated and then silently discarded on every run.
+          if git diff --cached --quiet; then
+            echo "README already in sync; nothing to commit"
+          else
+            git commit -m "chore: sync README with tech-stack"
+            git push
+          fi
