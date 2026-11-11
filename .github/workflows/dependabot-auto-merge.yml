@@ -1,0 +1,168 @@
+# Auto-merge for Dependabot PRs — installed on EVERY repo, GMW included, at
+# `.github/workflows/dependabot-auto-merge.yml`.
+#
+# WHY THE PATH IS THE WHOLE POINT. This file used to be installed one level up,
+# at `.github/dependabot-auto-merge.yml`, and GitHub only ever executes workflow
+# files from `.github/workflows/`. So it was never scheduled once: `GET
+# /repos/{repo}/actions/workflows` on a repo holding the old copy listed ci.yml,
+# deploy.yml and release.yml and nothing else. Every "auto-merge is configured"
+# claim was reading a file the runner does not look at. If you move this file,
+# move `AUTO_MERGE_PATH` in `syncHooks.ts` with it — the pair is the feature.
+#
+# WHY IT MERGES DIRECTLY INSTEAD OF ENABLING AUTO-MERGE. `enablePullRequestAutoMerge`
+# (and `gh pr merge --auto`) needs the repository setting `allow_auto_merge`,
+# which is OFF on every repo in this fleet, so that route fails on every PR until
+# someone flips a setting per repo — eighteen separate API calls that nothing
+# reminds you about. `gh pr merge --merge` needs no repository setting at all,
+# so this works on a repo with nothing configured. Merge commits are enabled
+# everywhere in this fleet, which is what makes `--merge` the right method.
+#
+# WHY `pull_request_target` AND NOT `pull_request`. It runs from the BASE
+# branch's copy of this file, so a PR cannot edit the workflow that judges it,
+# and the head is never checked out. A `pull_request` trigger would execute the
+# PR's own copy of this file, which is a remote-code-execution hole the moment
+# this job holds a write token.
+#
+# THE GATES. Each one is the line between "bumps land" and "a broken bump lands
+# by itself", and each is a POSITIVE requirement so that an unknown actor, a
+# fork, a red check or an unreadable API leaves the PR open:
+#   1. The PR AUTHOR is `dependabot[bot]` — read from
+#      `github.event.pull_request.user.login`, NOT `github.actor`. On a `labeled`
+#      event `github.actor` is the human who applied the label, so an actor test
+#      rejects precisely the event that was supposed to trigger the merge.
+#   2. The head branch lives in THIS repository, not in a fork.
+#   3. The PR is not a draft.
+#   4. No `dependabot-no-auto-merge` label. This is OPT-OUT on purpose: a bump
+#      merges by default, and a maintainer holds one back by labelling it. The
+#      previous template required a `dependabot-auto-merge` label that no config
+#      ever applied and no repo even defined, so it could never fire.
+#   5. CI on the EXACT head SHA has settled green, or the repo genuinely has no
+#      CI. Red, pending past the deadline, or unreadable all leave it open.
+#
+# FAIL-CLOSED: a bump that waits is recoverable. A broken bump that lands is not.
+name: Dependabot auto-merge
+
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, ready_for_review, labeled, unlabeled]
+
+permissions:
+  contents: write
+  pull-requests: write
+  # Reading `/commits/{sha}/check-runs` needs this. Without it the gate below
+  # cannot answer and the job would have to guess.
+  checks: read
+
+# One run per PR, and a new push CANCELS the previous run: `synchronize` makes
+# the older run's head SHA stale, and two runs racing could merge twice.
+concurrency:
+  group: dependabot-auto-merge-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  auto-merge:
+    name: Auto-merge dependency PR
+    runs-on: ubuntu-latest
+    if: >-
+      github.event.pull_request.user.login == 'dependabot[bot]' &&
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.draft == false &&
+      !contains(github.event.pull_request.labels.*.name, 'dependabot-no-auto-merge')
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      REPO: ${{ github.repository }}
+      PR: ${{ github.event.pull_request.number }}
+      SHA: ${{ github.event.pull_request.head.sha }}
+      # THIS JOB'S OWN CHECK RUN MUST BE EXCLUDED FROM THE CI GATE.
+      #
+      # `GET /commits/{sha}/check-runs` returns the check runs of EVERY app,
+      # including this workflow's own run — so without the exclusion below the
+      # gate reads itself as CI. Two ways that deadlocks, both observed on the
+      # first live run (MythEclipse/9router#2):
+      #   - the in-flight run reports `status: in_progress`, so `pending` never
+      #     reaches 0 and the job waits out the full 1800s deadline;
+      #   - `concurrency.cancel-in-progress` cancels a superseded run, whose
+      #     check run settles as `cancelled` — a RED conclusion — so every
+      #     later run declares "CI is red" and refuses to merge, permanently.
+      # The second is the one that turns this from a slow path into a dead one.
+      SELF_CHECK_NAME: Auto-merge dependency PR
+    steps:
+      - name: Require CI to be green, or absent
+        # "Green or absent" is the policy; "unreadable" is neither, so every
+        # failure below exits non-zero and the PR stays open for a human.
+        #
+        # THE EMPTY_GRACE WINDOW IS LOAD-BEARING. A check run takes tens of
+        # seconds to register after the push that created this head, so
+        # `total_count == 0` immediately after `opened` means "CI has not queued
+        # yet", NOT "this repo has no CI". Without the window this step would
+        # merge every bump the instant it appeared, which is the one outcome
+        # worse than a bump that waits.
+        run: |
+          set -euo pipefail
+
+          EMPTY_GRACE_SEC=120   # how long "no checks yet" may mean "no CI"
+          DEADLINE_SEC=1800     # how long a pending suite may keep us waiting
+          POLL_SEC=20
+
+          started=$SECONDS
+          empty_since=""
+
+          while :; do
+            # `--jq` filters this workflow's own check runs out BEFORE anything
+            # counts them, so `total`, `failed` and `pending` all describe CI
+            # alone. See SELF_CHECK_NAME above for why this is not optional.
+            body=$(gh api "repos/$REPO/commits/$SHA/check-runs?per_page=100" \
+              --jq "[.check_runs[] | select(.name != \"$SELF_CHECK_NAME\")] | {check_runs: ., total_count: length}")
+            total=$(jq -r '.total_count // 0' <<<"$body")
+
+            if [ "$total" -eq 0 ]; then
+              if [ -z "$empty_since" ]; then
+                empty_since=$SECONDS
+                echo "No check runs on $SHA yet — waiting up to ${EMPTY_GRACE_SEC}s for CI to register"
+              elif [ $((SECONDS - empty_since)) -ge "$EMPTY_GRACE_SEC" ]; then
+                echo "::notice::No check runs on $SHA after ${EMPTY_GRACE_SEC}s — this repo has no CI for this head, so the CI gate passes"
+                exit 0
+              fi
+            else
+              empty_since=""
+
+              failed=$(jq -r '
+                [.check_runs[]
+                 | select(.status == "completed")
+                 | select(.conclusion | IN("failure","cancelled","timed_out","action_required","stale","startup_failure"))
+                ] | length' <<<"$body")
+              if [ "$failed" -gt 0 ]; then
+                echo "::error::CI is red on $SHA — leaving this PR open for a human"
+                jq -r '.check_runs[]
+                       | select(.status == "completed")
+                       | select(.conclusion | IN("failure","cancelled","timed_out","action_required","stale","startup_failure"))
+                       | "  ✗ \(.name): \(.conclusion)"' <<<"$body"
+                exit 1
+              fi
+
+              pending=$(jq -r '[.check_runs[] | select(.status != "completed")] | length' <<<"$body")
+              if [ "$pending" -eq 0 ]; then
+                echo "::notice::CI is green on $SHA ($total check(s) reported)"
+                exit 0
+              fi
+              echo "Waiting on $pending of $total check(s) on $SHA"
+            fi
+
+            if [ $((SECONDS - started)) -ge "$DEADLINE_SEC" ]; then
+              echo "::error::CI did not settle within ${DEADLINE_SEC}s on $SHA — leaving this PR open for a human"
+              exit 1
+            fi
+            sleep "$POLL_SEC"
+          done
+
+      - name: Merge
+        # Reached only when the step above proved the gate. `--merge` keeps a
+        # merge commit, matching the worker's own `merge_method: "merge"`.
+        #
+        # KNOWN CONSEQUENCE, stated rather than hidden: a merge performed with
+        # `GITHUB_TOKEN` does NOT trigger `push`-triggered workflows, so a repo
+        # whose deploy hangs off `on: push` will not deploy this bump. The queue
+        # worker's own merge path uses an App installation token and does
+        # trigger them, so a repo that needs the deploy should be merged by the
+        # worker rather than here — label such a PR `dependabot-no-auto-merge`.
+        run: gh pr merge "$PR" --repo "$REPO" --merge --delete-branch
