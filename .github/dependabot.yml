@@ -1,0 +1,126 @@
+# Dependabot v2 — the default config installed on every fork.
+#
+# VERSION 2 IS MANDATORY. Dependabot ignores the whole file on any other value.
+# The `groups` block is what keeps a burst of transitive bumps from turning into
+# a burst of PRs, which is what this sync exists to keep quiet.
+#
+# EVERY LANE IS OPTIONAL AT RUNTIME. Dependabot does not error on a lane whose
+# directory holds no manifest — it simply finds nothing to update. That is why one
+# template can serve an npm workspace, a Laravel app and a Rust service alike,
+# and why the ecosystems this fleet actually holds are listed here rather than
+# being detected per repo. A lane that is added later starts working on its own.
+#
+# WHY THE NON-npm LANES EXIST AT ALL. This template used to declare only `npm` at
+# `/`. Repos whose vulnerable manifest is `composer.lock`, `Cargo.lock` or
+# `pom.xml` therefore got NO Dependabot PRs at all — the security alerts were
+# raised on GitHub's side and never actioned, because nothing was watching the
+# manifest. The lanes below are the fix: they are what makes a security advisory
+# on those ecosystems turn into a PR.
+#
+# `open-pull-requests-limit: 3` PER LANE, not per repo. Six lanes at the old 5
+# would be 30 open PRs on a quiet week; the auto-merge workflow drains them, but
+# a lane that is only ever used for version bumps should not drown the queue.
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    # Security updates ignore this limit, so a CVE is never queued behind a
+    # backlog of routine bumps.
+    open-pull-requests-limit: 5
+    groups:
+      production:
+        dependency-type: "production"
+      development:
+        dependency-type: "development"
+
+  # A pnpm/yarn workspace keeps its lockfile at the root, which the npm lane
+  # above already covers. The nested directories below are the ones that hold
+  # their OWN manifest and would otherwise be invisible.
+  - package-ecosystem: "npm"
+    directory: "/apps/tauri"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    open-pull-requests-limit: 3
+    groups:
+      production:
+        dependency-type: "production"
+      development:
+        dependency-type: "development"
+
+  # Laravel / Symfony apps. The advisory for `phpunit/phpunit` on
+  # AETHRA-Organizer-Website sat open because no lane declared composer.
+  - package-ecosystem: "composer"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    open-pull-requests-limit: 3
+    groups:
+      production:
+        dependency-type: "production"
+      development:
+        dependency-type: "development"
+
+  # Rust services. `zip` and `glib` advisories on scraper and zeavis-edu were
+  # open for the same reason as the composer one.
+  - package-ecosystem: "cargo"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    open-pull-requests-limit: 3
+    groups:
+      production:
+        dependency-type: "production"
+      development:
+        dependency-type: "development"
+
+  # Maven. ProjectBP1Teori's mysql-connector alert had no lane either.
+  - package-ecosystem: "maven"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    open-pull-requests-limit: 3
+
+  # Python. zeavis-edu carries Machine_Learning/requirements.txt.
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    open-pull-requests-limit: 3
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Asia/Jakarta"
+    labels: ["dependencies"]
+    groups:
+      actions:
+        dependency-type: "production"
